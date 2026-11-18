@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMetrics – Student Mental Health Prediction</title>
+  <meta name="description" content="ML-powered prediction of student mental health scores from social media usage, lifestyle and academic factors." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- SVG icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-brain" viewBox="0 0 24 24"><path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v.3A3 3 0 0 0 5 7.5a3 3 0 0 0 .6 1.8A3.5 3.5 0 0 0 4 12.5a3.5 3.5 0 0 0 1.8 3A3 3 0 0 0 9 19.5 2.5 2.5 0 0 0 12 22V4.5A2.5 2.5 0 0 0 9.5 2Z"/><path d="M14.5 2A2.5 2.5 0 0 1 17 4.5v.3a3 3 0 0 1 2 2.7 3 3 0 0 1-.6 1.8A3.5 3.5 0 0 1 20 12.5a3.5 3.5 0 0 1-1.8 3 3 3 0 0 1-3.2 4A2.5 2.5 0 0 1 12 22"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2.5 9 2.5 12 0v-5"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 22l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8Z"/></symbol>
+      <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5v14Z"/><path d="M6.5 17H20v4H6.5a2.5 2.5 0 0 1 0-4Z"/></symbol>
+      <symbol id="i-run" viewBox="0 0 24 24"><circle cx="14" cy="4" r="2"/><path d="m4 17 4-1 3-4 3 2 2 5M11 12l-1-4 4-1 3 3 3 1"/></symbol>
+      <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <span class="brand-icon"><svg class="icon"><use href="#i-brain"/></svg></span>
+        MindMetrics
+      </a>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#predict" class="btn btn-small">Try it</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <span class="pill">Machine Learning • FastAPI</span>
+        <h1>Student Mental Health<br /><span class="gradient-text">Prediction System</span></h1>
+        <p class="lead">
+          Estimate a student's mental health score from social media habits, sleep,
+          study routine, physical activity and stress level, powered by a trained ML model.
+        </p>
+        <a href="#predict" class="btn btn-primary btn-lg">Start Prediction</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container features">
+      <article class="card feature">
+        <span class="feature-icon blue"><svg class="icon"><use href="#i-phone"/></svg></span>
+        <h3>Social Media</h3>
+        <p>Platform, purpose, daily screen time and phone unlocks.</p>
+      </article>
+      <article class="card feature">
+        <span class="feature-icon green"><svg class="icon"><use href="#i-cap"/></svg></span>
+        <h3>Academics</h3>
+        <p>Academic level and the time spent studying each day.</p>
+      </article>
+      <article class="card feature">
+        <span class="feature-icon purple"><svg class="icon"><use href="#i-heart"/></svg></span>
+        <h3>Lifestyle</h3>
+        <p>Sleep, physical activity and perceived stress level.</p>
+      </article>
+    </section>
+
+    <!-- Predictor -->
+    <section id="predict" class="container predict">
+      <div class="section-head">
+        <h2>Predict Mental Health Score</h2>
+        <p>Fill in the details below. Every field is required.</p>
+      </div>
+
+      <div class="layout">
+        <form id="predict-form" class="form-col" novalidate>
+          <!-- Personal -->
+          <fieldset class="card">
+            <legend><span class="legend-icon blue"><svg class="icon"><use href="#i-user"/></svg></span> Personal Details</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="10" max="100" step="1" placeholder="e.g. 21" required />
+                <small class="hint">10 – 100 years</small>
+                <small class="error" data-error-for="age"></small>
+              </div>
+
+              <div class="field">
+                <label>Gender</label>
+                <div class="segmented" role="radiogroup" aria-label="Gender">
+                  <input type="radio" id="gender-male" name="gender" value="Male" required />
+                  <label for="gender-male">Male</label>
+                  <input type="radio" id="gender-female" name="gender" value="Female" />
+                  <label for="gender-female">Female</label>
+                </div>
+                <small class="error" data-error-for="gender"></small>
+              </div>
+
+              <div class="field span-2">
+                <label for="country">Country</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-globe"/></svg>
+                  <input type="text" id="country" name="country" list="country-list" placeholder="e.g. India" autocomplete="off" required />
+                  <datalist id="country-list">
+                    <option value="India"></option>
+                    <option value="USA"></option>
+                    <option value="Canada"></option>
+                    <option value="Australia"></option>
+                    <option value="UK"></option>
+                    <option value="Germany"></option>
+                    <option value="Mexico"></option>
+                    <option value="Turkey"></option>
+                    <option value="France"></option>
+                  </datalist>
+                </div>
+                <small class="hint">Pick a suggestion or type any country (others are grouped as "Other" by the model)</small>
+                <small class="error" data-error-for="country"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Academic -->
+          <fieldset class="card">
+            <legend><span class="legend-icon green"><svg class="icon"><use href="#i-cap"/></svg></span> Academic Details</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="academic_level">Academic Level</label>
+                <select id="academic_level" name="academic_level" required>
+                  <option value="" disabled selected>Select level</option>
+                  <option>High School</option>
+                  <option>Undergraduate</option>
+                  <option>Graduate</option>
+                </select>
+                <small class="error" data-error-for="academic_level"></small>
+              </div>
+
+              <div class="field">
+                <label for="study_hours">Study Hours (per day)</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-book"/></svg>
+                  <input type="number" id="study_hours" name="study_hours" min="0" max="24" step="0.1" placeholder="e.g. 4" required />
+                </div>
+                <small class="error" data-error-for="study_hours"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Social media -->
+          <fieldset class="card">
+            <legend><span class="legend-icon pink"><svg class="icon"><use href="#i-phone"/></svg></span> Social Media Usage</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="most_used_platform">Most Used Platform</label>
+                <select id="most_used_platform" name="most_used_platform" required>
+                  <option value="" disabled selected>Select platform</option>
+                  <option>Facebook</option>
+                  <option>Instagram</option>
+                  <option>Twitter</option>
+                  <option>TikTok</option>
+                  <option>YouTube</option>
+                  <option>Snapchat</option>
+                  <option>LinkedIn</option>
+                  <option>WhatsApp</option>
+                  <option>WeChat</option>
+                  <option>LINE</option>
+                  <option>KakaoTalk</option>
+                  <option>VKontakte</option>
+                </select>
+                <small class="error" data-error-for="most_used_platform"></small>
+              </div>
+
+              <div class="field">
+                <label for="purpose_of_use">Purpose of Use</label>
+                <select id="purpose_of_use" name="purpose_of_use" required>
+                  <option value="" disabled selected>Select purpose</option>
+                  <option>Networking</option>
+                  <option>Education</option>
+                  <option>Entertainment</option>
+                  <option>News</option>
+                </select>
+                <small class="error" data-error-for="purpose_of_use"></small>
+              </div>
+
+              <div class="field">
+                <label for="avg_daily_usage_hours">Avg. Daily Usage (hours)</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-clock"/></svg>
+                  <input type="number" id="avg_daily_usage_hours" name="avg_daily_usage_hours" min="0" max="24" step="0.1" placeholder="e.g. 5.5" required />
+                </div>
+                <small class="error" data-error-for="avg_daily_usage_hours"></small>
+              </div>
+
+              <div class="field">
+                <label for="daily_unlocks">Daily Unlocks</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-unlock"/></svg>
+                  <input type="number" id="daily_unlocks" name="daily_unlocks" min="0" step="1" placeholder="e.g. 80" required />
+                </div>
+                <small class="error" data-error-for="daily_unlocks"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Lifestyle -->
+          <fieldset class="card">
+            <legend><span class="legend-icon purple"><svg class="icon"><use href="#i-heart"/></svg></span> Lifestyle &amp; Wellbeing</legend>
+            <div class="grid">
+              <div class="field">
+                <label for="sleep_hours_per_night">Sleep (hours per night)</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-moon"/></svg>
+                  <input type="number" id="sleep_hours_per_night" name="sleep_hours_per_night" min="0" max="24" step="0.1" placeholder="e.g. 7" required />
+                </div>
+                <small class="error" data-error-for="sleep_hours_per_night"></small>
+              </div>
+
+              <div class="field">
+                <label for="physical_activity_hours">Physical Activity (hours)</label>
+                <div class="input-icon">
+                  <svg class="icon"><use href="#i-run"/></svg>
+                  <input type="number" id="physical_activity_hours" name="physical_activity_hours" min="0" max="2" step="0.1" placeholder="0 – 2" required />
+                </div>
+                <small class="hint">Between 0 and 2 hours</small>
+                <small class="error" data-error-for="physical_activity_hours"></small>
+              </div>
+
+              <div class="field span-2">
+                <label><svg class="icon inline"><use href="#i-bolt"/></svg> Stress Level</label>
+                <div class="segmented stress" role="radiogroup" aria-label="Stress level">
+                  <input type="radio" id="stress-low" name="stress_level" value="Low" required />
+                  <label for="stress-low">Low</label>
+                  <input type="radio" id="stress-medium" name="stress_level" value="Medium" />
+                  <label for="stress-medium">Medium</label>
+                  <input type="radio" id="stress-high" name="stress_level" value="High" />
+                  <label for="stress-high">High</label>
+                  <input type="radio" id="stress-vhigh" name="stress_level" value="Very High" />
+                  <label for="stress-vhigh">Very High</label>
+                </div>
+                <small class="error" data-error-for="stress_level"></small>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="actions">
+            <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">
+              <span class="btn-label">Predict Mental Health Score</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+            <button type="reset" id="reset-btn" class="btn btn-ghost btn-lg">Reset Form</button>
+          </div>
+        </form>
+
+        <!-- Result column -->
+        <aside class="result-col" aria-live="polite">
+          <div id="result-card" class="card result">
+            <!-- Idle -->
+            <div id="state-idle" class="state">
+              <span class="result-emoji"><svg class="icon big"><use href="#i-brain"/></svg></span>
+              <h3>Your result will appear here</h3>
+              <p>Complete the form and press <strong>Predict</strong> to see the model's score.</p>
+            </div>
+
+            <!-- Loading -->
+            <div id="state-loading" class="state" hidden>
+              <div class="loader"></div>
+              <h3>Analysing…</h3>
+              <p>Contacting the prediction model.</p>
+            </div>
+
+            <!-- Success -->
+            <div id="state-success" class="state" hidden>
+              <p class="eyebrow">Predicted Mental Health Score</p>
+              <div class="gauge">
+                <svg viewBox="0 0 120 120">
+                  <circle class="gauge-track" cx="60" cy="60" r="52" />
+                  <circle id="gauge-fill" class="gauge-fill" cx="60" cy="60" r="52" />
+                </svg>
+                <div class="gauge-text">
+                  <span id="score-value">0.00</span>
+                  <small id="score-scale">/ 10</small>
+                </div>
+              </div>
+              <span id="score-badge" class="badge">—</span>
+              <p id="score-note" class="note"></p>
+            </div>
+
+            <!-- Error -->
+            <div id="state-error" class="state" hidden>
+              <span class="result-emoji error-emoji"><svg class="icon big"><use href="#i-alert"/></svg></span>
+              <h3 id="error-title">Something went wrong</h3>
+              <p id="error-message"></p>
+            </div>
+          </div>
+          <p class="disclaimer">
+            This tool is an academic ML project and not a medical diagnosis. If you or someone you know is struggling, please reach out to a qualified professional.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">Student Mental Health Prediction System • Built with FastAPI &amp; Machine Learning</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
