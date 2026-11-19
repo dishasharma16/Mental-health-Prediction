@@ -1,10 +1,14 @@
-# 🧠 Student Mental Health Prediction
+# 🧠 Mind Metrics – Student Mental Health Prediction
 
 A Machine Learning-based web application that predicts students' mental health scores based on their lifestyle, academic activities, and social media usage patterns.
 
+## 🌐 Live Demo
+
+https://mental-health-prediction-3-r856.onrender.com
+
 ## 📌 Project Overview
 
-Student Mental Health Prediction is a machine learning project developed to analyze the relationship between students' daily habits, social media usage, academic activities, and mental health.
+Mind Metrics is a Machine Learning project developed to analyze the relationship between students' daily habits, social media usage, academic activities, and mental health.
 
 The project uses a trained Machine Learning model integrated with FastAPI to generate predictions based on user-provided information.
 
@@ -25,7 +29,7 @@ The project uses a trained Machine Learning model integrated with FastAPI to gen
 - **FastAPI** – Backend API development
 - **Pydantic** – Data validation
 - **Joblib** – Model loading and serialization
-- **HTML, CSS, JavaScript** – Frontend (if applicable)
+- **HTML, CSS & JavaScript** – Frontend development
 
 ## 📊 Input Features
 
@@ -47,15 +51,15 @@ The model uses the following student-related features:
 ## 📁 Project Structure
 
 ```text
-Mental-health-Prediction/
+Mind-Metrics/
 │
 ├── main.py
+├── index.html
+├── style.css
+├── script.js
 ├── Mental_health_model.pkl
 ├── requirements.txt
-├── README.md
-│
-└── frontend/
-    └── (Frontend files)
+└── README.md
 ```
 
 ## ⚙️ Installation and Setup
@@ -100,15 +104,16 @@ uvicorn main:app --reload --port 2200
 
 ### 7. Open API Documentation
 
-Visit the following URL in your browser:
+Visit:
 
+```text
 http://127.0.0.1:2200/docs
+```
 
 ## 🔗 API Details
 
-**Endpoint:** `/predict`
-
-**Method:** `POST`
+- **Endpoint:** `/predict`
+- **Method:** `POST`
 
 The API accepts student information in JSON format and returns the predicted mental health score.
 
@@ -116,7 +121,6 @@ The API accepts student information in JSON format and returns the predicted men
 
 - Improve prediction accuracy through model optimization.
 - Add more data visualizations.
-- Deploy the application online.
 - Enhance frontend design and user experience.
 
 ## ⚠️ Disclaimer
