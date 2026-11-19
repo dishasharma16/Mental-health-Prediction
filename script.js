@@ -5,7 +5,7 @@
 // ---------- Configuration ----------
 // Direct call to FastAPI. If you serve the frontend through serve.py
 // (proxy mode, see README) change this to "/predict".
-const API_URL = "https://mental-health-prediction-8vt1.onrender.com";
+const API_URL = "https://mental-health-prediction-8vt1.onrender.com/predict";
 const REQUEST_TIMEOUT_MS = 20000;
 
 // Scale used ONLY to draw the gauge and the colour band of the result.
